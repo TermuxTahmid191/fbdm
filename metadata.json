@@ -1,0 +1,11 @@
+{
+  "name": "Copy of FBDM - Free Blood Donation Mymensingh",
+  "description": "A comprehensive community platform for blood donation in Mymensingh, featuring donor search, request management, and admin controls.",
+  "requestFramePermissions": [
+    "camera",
+    "geolocation"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

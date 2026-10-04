@@ -3,7 +3,17 @@ import { initializeApp, getApps } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
-const rawApiKey = import.meta.env.VITE_FIREBASE_API_KEY || "";
+// User-provided Firebase credentials for gen-lang-client-0186179192
+const defaultFirebaseConfig = {
+  apiKey: "AIzaSyAxXVy2Vv_G5-z1gcLSvCm2wrE9ikL3hww",
+  authDomain: "gen-lang-client-0186179192.firebaseapp.com",
+  projectId: "gen-lang-client-0186179192",
+  storageBucket: "gen-lang-client-0186179192.firebasestorage.app",
+  messagingSenderId: "556121713297",
+  appId: "1:556121713297:web:388a6bbd996d72ee91ad30"
+};
+
+const rawApiKey = import.meta.env.VITE_FIREBASE_API_KEY || defaultFirebaseConfig.apiKey;
 
 export const isFirebaseConfigured = Boolean(
   rawApiKey && 
@@ -13,12 +23,12 @@ export const isFirebaseConfigured = Boolean(
 );
 
 const firebaseConfig = {
-  apiKey: isFirebaseConfigured ? rawApiKey : "AIzaSyDummyInitializationKeyForPreviewOnly00",
-  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN || "fbdm-blood-donation.firebaseapp.com",
-  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID || "fbdm-blood-donation",
-  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET || "fbdm-blood-donation.appspot.com",
-  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID || "105968496137",
-  appId: import.meta.env.VITE_FIREBASE_APP_ID || "1:105968496137:web:fbdm0000"
+  apiKey: rawApiKey,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN || defaultFirebaseConfig.authDomain,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID || defaultFirebaseConfig.projectId,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET || defaultFirebaseConfig.storageBucket,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID || defaultFirebaseConfig.messagingSenderId,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID || defaultFirebaseConfig.appId
 };
 
 // Initialize Firebase safely
